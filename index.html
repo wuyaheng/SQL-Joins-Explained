@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Joins, Explained</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Playfair+Display:700,400,900,400italic,700italic,900italic|Merriweather:400,300,700,900,300italic,400italic,700italic,900italic|Anonymous+Pro:400,700,400italic,700italic|Roboto:400,700' />
+    <link rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/google/code-prettify/master/styles/desert.css' />
+    <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' />
+
+
+    <style>
+body {
+  margin:50px 10px;
+}
+
+#blog {
+  display: block; 
+  width: auto!important; 
+  overflow: hidden; 
+} 
+
+a, a.named_anchor {
+    text-decoration: inherit;
+    font-style: inherit;
+    color: inherit;
+  }
+  
+
+
+h1 {
+    letter-spacing: -0.06em;
+    margin-bottom: 0.05em;
+    line-height: 1em;
+}
+
+.byline {
+    font: normal normal 400 1.3em;
+    margin-bottom: .8em;
+    letter-spacing: -0.04em;
+  }
+
+.pubdate {
+    font: normal normal 400 1em;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+
+.pubtime:before {
+    font-family: 'FontAwesome';
+    font-size: .8em;
+    content:'\f054';
+    margin: 0em .5em;
+}
+
+hr {
+    border: 0;
+    border-bottom: 4px double;
+    height: 0.15em;
+}
+
+
+.topic {
+    font: normal normal 900 .8em;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+
+#article {
+  font: normal normal 400 1em/2em;
+  line-height: 2em;
+  text-align: justify;
+}
+
+a, a:link {
+    text-decoration: none;
+    cursor: pointer;
+    color: #1b98e0;
+}  
+
+.shade {
+  background: #eee;
+  padding: 0 0.2em;
+}
+    
+h2, h4, h5 { 
+    font-weight: 650; 
+    font-size: 1.25em; 
+}
+
+h3 {
+    font-weight: 650; 
+    font-size: 1.6em;  
+}
+
+
+p { 
+    margin-bottom:2em; 
+    line-height: 2em;
+}
+    
+
+p:first-child:first-letter { 
+      font-weight: 900;
+      float: left; 
+      font-size: 4em; 
+      line-height: 1em; 
+      padding: 0em 0.1em 0em 0em;
+}
+
+.slideSample {
+  width: 50%;
+  margin-bottom: 2em;
+}
+
+@media only screen and (max-width: 768px) {
+  .slideSample {
+    width: 80%;
+  }
+}
+    </style>
+</head>
+<body>
+    
+
+
+    
+<div class="container">
+    <div id="blog">
+      <div id="title">
+        <div class="pubdate">07 September 2021<hr/></div>
+        <h1>SQL Joins, Explained</h1>
+        <div class="byline">by Phoebe Yaheng Wu</div>
+        <!-- <div class="topic">Data</div> -->
+      </div>
+      
+    
+      
+      <!-- Article text -->
+      <!-- <a class="named_anchor" name="2549202418499648455"></a> -->
+      <div id="article">
+        <div id="content">
+          <p>In the era of big data, there is a ton of information stored in each company’s database. Foot Locker, for example, has information on each customer, product, supplier, and order. All of this information needs to be stored in their database, which includes many tables like the customer table, product table, supplier table, order table, order detail table, and so on. With the help of SQL Join, we can connect different tables based on their related columns.
+          </p>
+ 
+ <p>There are many different types of Joins in SQL, and it can be confusing at first. In this article, I will explain each Join and the difference among them. Below is a diagram of different Joins, together with the SQL Union, which can be confused with SQL Joins.</p>
+ <div class="row justify-content-center">
+ <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F1.png?v=1630991764743">
+</div>
+
+<h3 class="text-center">SQL Joins</h3>
+    <h5>Left (Outer) Join</h5>
+    <p>Left Outer Join is also known as Left Join. Suppose there are two tables: tableA and tableB. Left Join will return all rows from TableA (left) and the matching rows from TableB (right). The output of the operation will contain at least all rows in the left table and the matching rows from the right table.
+    </p>
+    <div class="row justify-content-center">
+      <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F2.png?v=1630991768564">
+     </div>
+
+
+
+  
+     <h5>Right (Outer) Join</h5>
+     <p>Right Outer Join is also known as Right Join. Right Join will return all rows from the right table (TableB) and the matching rows from the left table (TableA). The output of the operation will contain at least all rows from the right table and the matching rows from the left table. Right Join is exactly the opposite of Left Join. Therefore, if you switch TableA and TableB in Right Join, you will get the same output as for Left Join.
+     </p>
+     <div class="row justify-content-center">
+       <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F3.png?v=1630991772543">
+      </div>
+
+
+      <h5>Full (Outer) Join</h5>
+     <p>Full Outer Join is also known as Full Join. Full Join will return all rows in the left table and all rows in the right table, including all matching rows in both tables. The columns of the Full Join are TableA columns plus TableB columns. It will show all records in both tables.
+     </p>
+     <div class="row justify-content-center">
+       <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F4.png?v=1630991776226">
+      </div>
+
+
+      <h5>(Inner) Join</h5>
+      <p>Inner Join is also known as Join. Inner Join will return all rows where there is a match in both tables. If there are no matches between the two tables, then they are excluded from the output records.
+      </p>
+      <div class="row justify-content-center">
+        <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F5.png?v=1630991780181">
+       </div>
+ 
+       <h5>Cross Join</h5>
+       <p>Cross Join will return the Cartesian Product of the two joining tables. Cross Join doesn’t require a foreign key in order to join two tables. It will generate all possible combinations of two tables. For instance, in the tables below, we need all possible combinations of TableA and TableB to recreate a full set of playing cards.
+       </p>
+       <div class="row justify-content-center">
+         <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F6.png?v=1630991785642">
+        </div>
+
+        <h5>Self Join</h5>
+        <p>Self Join means joining a table with itself. Different from other Joins, there is no “Self Join” keyword. It’s just a regular “Inner Join”. But it’s better to use an alias to name each table; otherwise, it can be confusing since there are effectively two of the same table. Self Join is commonly used when there is a relationship between rows in the table itself, like an employee-manager relationship.
+        </p>
+
+      <h3 class="text-center">SQL Union</h3>
+
+      <p>SQL Union is different from SQL Joins as Joins are increasing the columns, while Union is increasing the rows. You can think of Union as adding one table below another table. But one requirement for SQL Union would be to have the same structure for both tables—the same number of columns and similar data types in each column. </p>
+
+      <div class="row justify-content-center">
+        <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F7.png?v=1630991790626">
+       </div>
+
+       <p>These are all of the Joins you need to know for combining tables. However, this is just a basic guide to get you started with SQL Joins. If you want to master SQL Joins, I recommend practicing different Joins and learning as you go.</p><br/>
+
+       <p class="text-center">Reference</p>
+
+       <a target="_blank" href="https://stackoverflow.com/questions/17759687/cross-join-vs-inner-join-in-sql">https://stackoverflow.com/questions/17759687/cross-join-vs-inner-join-in-sql</a><br/>
+       <a target="_blank" href="https://stackoverflow.com/questions/38549/what-is-the-difference-between-inner-join-and-outer-join">https://stackoverflow.com/questions/38549/what-is-the-difference-between-inner-join-and-outer-join</a><br/>
+       <a target="_blank" href="https://stackoverflow.com/questions/3362038/what-is-self-join-and-when-would-you-use-it">https://stackoverflow.com/questions/3362038/what-is-self-join-and-when-would-you-use-it</a>
+</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue pt-4">
+  
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+        
+        <div id="disqus_thread"></div>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+    
+    </div>
+
+
+
+    <!-- Scripts --> 
+
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.js"></script>
+    <!-- Script for pocket button -->
+    <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+    <!-- Print friendly -->
+    <script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'right';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if ('https:' === document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();</script>
+    <!-- Share button / http://sharebutton.co
+    <script src="https://cdn.rawgit.com/carrot/share-button/master/src/share-button.js"></script>-->
+
+
+    <script>
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://wuyaheng.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</body>
+</html>
+
+
