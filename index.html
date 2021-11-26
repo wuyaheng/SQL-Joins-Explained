@@ -147,7 +147,7 @@ p:first-child:first-letter {
  
  <p>There are many different types of Joins in SQL, and it can be confusing at first. In this article, I will explain each Join and the difference among them. Below is a diagram of different Joins, together with the SQL Union, which can be confused with SQL Joins.</p>
  <div class="row justify-content-center">
- <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F1.png?v=1630991764743">
+ <img class="slideSample" src="./assets/Diagram.png">
 </div>
 
 <h3 class="text-center">SQL Joins</h3>
@@ -155,7 +155,7 @@ p:first-child:first-letter {
     <p>Left Outer Join is also known as Left Join. Suppose there are two tables: tableA and tableB. Left Join will return all rows from TableA (left) and the matching rows from TableB (right). The output of the operation will contain at least all rows in the left table and the matching rows from the right table.
     </p>
     <div class="row justify-content-center">
-      <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F2.png?v=1630991768564">
+      <img class="slideSample" src="./assets/LeftJoin.png">
      </div>
 
 
@@ -165,7 +165,7 @@ p:first-child:first-letter {
      <p>Right Outer Join is also known as Right Join. Right Join will return all rows from the right table (TableB) and the matching rows from the left table (TableA). The output of the operation will contain at least all rows from the right table and the matching rows from the left table. Right Join is exactly the opposite of Left Join. Therefore, if you switch TableA and TableB in Right Join, you will get the same output as for Left Join.
      </p>
      <div class="row justify-content-center">
-       <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F3.png?v=1630991772543">
+       <img class="slideSample" src="./assets/RightJoin.png">
       </div>
 
 
@@ -173,7 +173,7 @@ p:first-child:first-letter {
      <p>Full Outer Join is also known as Full Join. Full Join will return all rows in the left table and all rows in the right table, including all matching rows in both tables. The columns of the Full Join are TableA columns plus TableB columns. It will show all records in both tables.
      </p>
      <div class="row justify-content-center">
-       <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F4.png?v=1630991776226">
+       <img class="slideSample" src="./assets/FullJoin.png">
       </div>
 
 
@@ -181,14 +181,14 @@ p:first-child:first-letter {
       <p>Inner Join is also known as Join. Inner Join will return all rows where there is a match in both tables. If there are no matches between the two tables, then they are excluded from the output records.
       </p>
       <div class="row justify-content-center">
-        <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F5.png?v=1630991780181">
+        <img class="slideSample" src="./assets/InnerJoin.png">
        </div>
  
        <h5>Cross Join</h5>
        <p>Cross Join will return the Cartesian Product of the two joining tables. Cross Join doesn’t require a foreign key in order to join two tables. It will generate all possible combinations of two tables. For instance, in the tables below, we need all possible combinations of TableA and TableB to recreate a full set of playing cards.
        </p>
        <div class="row justify-content-center">
-         <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F6.png?v=1630991785642">
+         <img class="slideSample" src="./assets/CrossJoin.png"> 
         </div>
 
         <h5>Self Join</h5>
@@ -200,7 +200,7 @@ p:first-child:first-letter {
       <p>SQL Union is different from SQL Joins as Joins are increasing the columns, while Union is increasing the rows. You can think of Union as adding one table below another table. But one requirement for SQL Union would be to have the same structure for both tables—the same number of columns and similar data types in each column. </p>
 
       <div class="row justify-content-center">
-        <img class="slideSample" src="https://cdn.glitch.com/a4fd9886-8b69-4c87-9db3-63d558580a9b%2F7.png?v=1630991790626">
+        <img class="slideSample" src="./assets/Union.png"> 
        </div>
 
        <p>These are all of the Joins you need to know for combining tables. However, this is just a basic guide to get you started with SQL Joins. If you want to master SQL Joins, I recommend practicing different Joins and learning as you go.</p><br/>
